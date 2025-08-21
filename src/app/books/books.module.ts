@@ -3,6 +3,7 @@ import { BookRegistration } from './components/book-registration/book-registrati
 import { BooksRoutingModule } from './books-routing.module';
 import { BookSearch } from './components/book-search/book-search';
 import { BookEdit } from './components/book-edit/book-edit';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -10,6 +11,10 @@ import { BookEdit } from './components/book-edit/book-edit';
     BookSearch,
     BookEdit
   ],
-  imports: [BooksRoutingModule],
+  imports: [
+    BooksRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
 })
 export class BooksModule {}

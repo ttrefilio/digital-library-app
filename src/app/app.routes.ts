@@ -4,9 +4,7 @@ import { BooksModule } from './books/books.module';
 export const routes: Routes = [
   {
     path: 'books',
-    loadChildren: () =>
-      import('./books/books.module')
-      .then((m) => BooksModule),
+    loadChildren: () => import('./books/books.module').then((m) => BooksModule),
   },
   {
     path: '',
