@@ -1,6 +1,8 @@
 import { Component, inject, signal } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { BookRegistrationRequestDto } from '../../../core/dtos/book-registration-request-dto';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BookModel } from '../../../core/models/bookModel';
+import { BookService } from '../../../core/services/book-service';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-book-registration',
@@ -10,27 +12,43 @@ import { BookRegistrationRequestDto } from '../../../core/dtos/book-registration
 })
 export class BookRegistration {
   private fb = inject(FormBuilder);
+  private service = inject(BookService);
 
   registrationForm!: FormGroup;
   message = signal('');
 
   ngOnInit(): void {
     this.registrationForm = this.fb.group({
-      title: [''],
-      author: [''],
-      year: [''],
-      genre: [''],
+      title: ['', [Validators.required, Validators.minLength(3)]],
+      author: ['', [Validators.required, Validators.minLength(6)]],
+      year: [
+        '',
+        [Validators.required, Validators.max(new Date().getFullYear())],
+      ],
+      genre: ['', [Validators.required]],
+      imageUrl: [''],
     });
   }
 
   onSubmit() {
-    const request: BookRegistrationRequestDto = {
-      title: this.registrationForm.value.title as string,
-      author: this.registrationForm.value.author as string,
-      year: this.registrationForm.value.year as number,
-      genre: this.registrationForm.value.genre as string,
-    };
+    if (this.registrationForm.valid) {
+      const request: BookModel = {
+        id: uuidv4(),
+        title: this.registrationForm.value.title as string,
+        author: this.registrationForm.value.author as string,
+        year: this.registrationForm.value.year as number,
+        genre: this.registrationForm.value.genre as string,
+        imageUrl: this.registrationForm.value.imageUrl as string,
+      };
 
-    this.message.set(request.title);
+      this.service.post(request).subscribe(() => {
+        this.message.set(
+          `The book ${request.title} was sucessfully registered.`
+        );
+        this.registrationForm.reset();
+      });
+    } else {
+      this.registrationForm.markAllAsTouched();
+    }
   }
 }

@@ -1,6 +1,18 @@
 <div class="card mt-5">
   <h5 class="card-header">Book Registration</h5>
   <div class="card-body">
+    @if(message()){
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+      <strong> {{ message() }}</strong>
+      <button
+        (click)="message.set('')"
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+      ></button>
+    </div>
+    }
+
     <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
         <label class="form-label"> Book Title </label>
@@ -10,7 +22,14 @@
           formControlName="title"
           placeholder="Enter title"
         />
+        @if(registrationForm.get('title')?.touched &&
+        registrationForm.get('title')?.invalid) {
+        <div class="text-danger">
+          The title should have at least 3 characters.
+        </div>
+        }
       </div>
+
       <div class="mb-3">
         <label class="form-label"> Author </label>
         <input
@@ -19,7 +38,14 @@
           formControlName="author"
           placeholder="Enter author"
         />
+        @if(registrationForm.get('author')?.touched &&
+        registrationForm.get('author')?.invalid) {
+        <div class="text-danger">
+          Author is required and should have at least 6 characters.
+        </div>
+        }
       </div>
+
       <div class="mb-3">
         <label class="form-label"> Year </label>
         <input
@@ -28,7 +54,12 @@
           formControlName="year"
           placeholder="Enter publication year"
         />
+        @if(registrationForm.get('year')?.touched &&
+        registrationForm.get('year')?.invalid) {
+        <div class="text-danger">A valid year is required.</div>
+        }
       </div>
+
       <div class="mb-3">
         <label class="form-label"> Genre </label>
         <input
@@ -37,20 +68,34 @@
           formControlName="genre"
           placeholder="Enter genre"
         />
+        @if(registrationForm.get('genre')?.touched &&
+        registrationForm.get('genre')?.invalid) {
+        <div class="text-danger">Genre is required.</div>
+        }
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label"> Image URL </label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="imageUrl"
+          placeholder="Enter image URL"
+        />
       </div>
 
       <div class="row">
         <div class="col-md-12">
-          <button type="button" type="submit" class="btn btn-secondary" [disabled]="registrationForm.invalid"><b>Save Book</b></button>
+          <button
+            type="button"
+            type="submit"
+            class="btn btn-secondary"
+            [disabled]="registrationForm.invalid"
+          >
+            <b>Save Book</b>
+          </button>
         </div>
-    </div>
-
+      </div>
     </form>
   </div>
 </div>
-
-@if (message()) {
-  <div>
-  <p>{{ message() }}</p>
-</div>
-}

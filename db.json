@@ -1,0 +1,68 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "The Hunger Games",
+      "author": "Suzanne Collins",
+      "year": 2008,
+      "genre": "Dystopian",
+      "imageUrl": "https://m.media-amazon.com/images/I/71un2hI4mcL.jpg"
+    },
+    {
+      "id": "2",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "year": 1813,
+      "genre": "Classic",
+      "imageUrl": "https://m.media-amazon.com/images/I/712P0p5cXIL._UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "3",
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "year": 1960,
+      "genre": "Classic",
+      "imageUrl": "https://m.media-amazon.com/images/I/81aY1lxk+9L.jpg"
+    },
+    {
+      "id": "4",
+      "title": "Harry Potter and the Order of the Phoenix",
+      "author": "J.K. Rowling",
+      "year": 2003,
+      "genre": "Fantasy",
+      "imageUrl": "https://m.media-amazon.com/images/I/81Budsu1XBL.jpg"
+    },
+    {
+      "id": "5",
+      "title": "The Book Thief",
+      "author": "Markus Zusak",
+      "year": 2005,
+      "genre": "Historical Fiction",
+      "imageUrl": "https://m.media-amazon.com/images/I/914cHl9v7oL.jpg"
+    },
+    {
+      "id": "9540dab9-b1e8-4fe5-817f-cdfae1b5996a",
+      "title": "Domain Driven Design",
+      "author": "Eric Evans",
+      "year": 2016,
+      "genre": "IT",
+      "imageUrl": "https://m.media-amazon.com/images/I/61aIS4n2jZL._SL1000_.jpg"
+    },
+    {
+      "id": "d2d6b75b-7c30-4782-8553-a0492b55befa",
+      "title": "Clean Architecture",
+      "author": "Robert C. Martin",
+      "year": 2017,
+      "genre": "IT",
+      "imageUrl": ""
+    },
+    {
+      "id": "ff7528f5-2c1c-460b-9eca-6a0534976158",
+      "title": "Novo teste",
+      "author": "novo autor",
+      "year": 1900,
+      "genre": "qualquer",
+      "imageUrl": "https://m.media-amazon.com/images/I/61aIS4n2jZL._SL1000_.jpg"
+    }
+  ]
+}

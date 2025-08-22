@@ -1,6 +1,22 @@
+<form class="d-flex mt-4" role="search" [formGroup]="searchForm">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search by the title"
+          aria-label="Search"
+          formControlName="searchTerm"
+        />
+
+</form>
+
 <div class="card mt-5">
   <h5 class="card-header">Search Result</h5>
 
+  @if(isCompleted() && filteredBooks().length == 0) {
+  <div class="alert alert-info mt-3">
+    <strong>No books found.</strong>
+  </div>
+  } @else {
   <table class="table table-light table-striped mt-3">
     <thead>
       <tr>
@@ -13,33 +29,44 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      @for (book of filteredBooks(); track $index) {
+      <tr class="align-middle">
         <!-- <th scope="row">1</th> -->
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <td>
+          <img
+            [src]="book.imageUrl"
+            alt="{{ book.title }} cover"
+            (error)="onImageError($event)"
+            class="book-thumbnail"
+            width="60"
+            height="90"
+          />
+        </td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.year }}</td>
+        <td>{{ book.genre }}</td>
+        <td>
+          <button
+            class="btn btn-primary btn-sm m-1"
+            [routerLink]="['/books/edit', book.id]"
+          >
+            Edit
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="onDelete(book.id)">Delete</button>
+        </td>
       </tr>
-      <tr>
-        <!-- <th scope="row">2</th> -->
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <!-- <th scope="row">3</th> -->
-        <td>John</td>
-        <td>Doe</td>
-        <td>@social</td>
-        <td>John</td>
-        <td>Doe</td>
-        <td>@social</td>
-      </tr>
+      }
     </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="6">
+          The search returned <strong>{{ filteredBooks().length }}</strong> book{{
+            filteredBooks().length > 1 ? "s" : ""
+          }}.
+        </td>
+      </tr>
+    </tfoot>
   </table>
+  }
 </div>
