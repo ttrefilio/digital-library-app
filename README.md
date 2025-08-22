@@ -1,59 +1,99 @@
-# DigitalLibraryApp
+# Digital Library App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.4.
+A modern, full-featured Angular 20 portfolio project for managing a digital library. This application demonstrates advanced Angular techniques, modular architecture, and integration with a mock REST API using json-server.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- **Book Search:** Search books by title with live filtering as you type.
+- **Book Registration:** Add new books with validation (title, author, year, genre, image URL).
+- **Book Edit:** Update book details via a dedicated edit page.
+- **Book Delete:** Remove books with confirmation dialogs.
+- **Book List:** View all books with thumbnail images and details.
+- **Responsive UI:** Built with Bootstrap 5 for a clean, mobile-friendly experience.
+- **Mock API:** Uses json-server for local RESTful endpoints and realistic data.
 
-```bash
-ng serve
-```
+## Technologies & Techniques
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Angular 20**: Standalone components and modules, signals, reactive forms, dependency injection.
+- **TypeScript**: Strong typing, DTOs, models, and service interfaces.
+- **Bootstrap 5**: Responsive design and utility classes.
+- **json-server**: Local REST API for CRUD operations and rapid prototyping.
+- **RxJS**: Observables for async data and reactive programming.
+- **Portfolio Quality**: Clean code, modular structure, and best practices for enterprise Angular apps.
 
-## Code scaffolding
+## Installation
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/ttrefilio/digital-library-app.git
+   cd digital-library-app
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Install json-server (for mock API):**
+   ```bash
+   npm install --save-dev json-server
+   ```
 
-```bash
-ng generate component component-name
-```
+## Running the Application
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. **Start the mock API:**
 
-```bash
-ng generate --help
-```
+   ```bash
+   npx json-server --watch db.json --port 3000
+   ```
 
-## Building
+   The API will be available at `http://localhost:3000/books`.
 
-To build the project run:
+2. **Start the Angular development server:**
+   ```bash
+   ng serve
+   ```
+   The app will be available at `http://localhost:4200/`.
 
-```bash
-ng build
-```
+## Project Structure
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- `src/app/core/models/` — Book model and DTOs
+- `src/app/core/services/` — Book service (API integration)
+- `src/app/books/components/` — Book registration, search, and edit components
+- `src/app/books/books-routing.module.ts` — Feature routing
+- `db.json` — Mock data for json-server
 
-## Running unit tests
+## How It Works
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- **Live Search:** Filters books locally as you type in the search field.
+- **Validation:** Forms use Angular validators for required fields and value ranges.
+- **Image Handling:** Displays book cover images; uses a default image if the URL is invalid.
+- **Routing:** Feature modules and lazy loading for scalable architecture.
+- **Service Modularization:** BookService provided via CoreModule for clean DI.
 
-```bash
-ng test
-```
+## Why This Project?
 
-## Running end-to-end tests
+This app is designed as a portfolio showcase for modern Angular development. It demonstrates:
 
-For end-to-end (e2e) testing, run:
+- Modular and scalable architecture
+- Clean separation of concerns
+- Integration with REST APIs
+- Advanced UI/UX with Bootstrap
+- Real-world features like CRUD, search, and validation
 
-```bash
-ng e2e
-```
+## Getting Started
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- Fork or clone the repo
+- Install dependencies
+- Run the mock API and Angular app
+- Explore the code and features
 
-## Additional Resources
+## License
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+MIT
+
+---
+
+**Contact:** [Thiago Trefilio] · [t.trefilio@gmail.com] · [linkedin.com/in/thiagotrefilio | github.com/ttrefilio]
+
+---
+
+_Built with Angular 20, Bootstrap 5, and json-server._

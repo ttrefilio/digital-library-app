@@ -21,10 +21,7 @@ export class BookRegistration {
     this.registrationForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
       author: ['', [Validators.required, Validators.minLength(6)]],
-      year: [
-        '',
-        [Validators.required, Validators.max(new Date().getFullYear())],
-      ],
+      year: ['', [Validators.required, Validators.min(1901), Validators.max(new Date().getFullYear())]],
       genre: ['', [Validators.required]],
       imageUrl: [''],
     });

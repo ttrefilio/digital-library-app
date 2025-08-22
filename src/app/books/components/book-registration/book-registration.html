@@ -56,7 +56,7 @@
         />
         @if(registrationForm.get('year')?.touched &&
         registrationForm.get('year')?.invalid) {
-        <div class="text-danger">A valid year is required.</div>
+        <div class="text-danger">Year is required and should be greater than 1900.</div>
         }
       </div>
 

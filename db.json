@@ -54,15 +54,7 @@
       "author": "Robert C. Martin",
       "year": 2017,
       "genre": "IT",
-      "imageUrl": ""
-    },
-    {
-      "id": "ff7528f5-2c1c-460b-9eca-6a0534976158",
-      "title": "Novo teste",
-      "author": "novo autor",
-      "year": 1900,
-      "genre": "qualquer",
-      "imageUrl": "https://m.media-amazon.com/images/I/61aIS4n2jZL._SL1000_.jpg"
+      "imageUrl": "https://m.media-amazon.com/images/I/71stxGw9JgL._SL1500_.jpg"
     }
   ]
 }

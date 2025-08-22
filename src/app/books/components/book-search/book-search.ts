@@ -32,7 +32,7 @@ export class BookSearch {
 
     this.searchForm.get('searchTerm')!.valueChanges.subscribe(() => {
       this.filterBooks();
-    })
+    });
   }
 
   onImageError(event: Event) {
@@ -42,14 +42,18 @@ export class BookSearch {
 
   filterBooks() {
     const term = this.searchForm.get('searchTerm')!.value.toLowerCase();
-    this.filteredBooks.set(this.books().filter(book => book.title.toLowerCase().includes(term)));
+    this.filteredBooks.set(
+      this.books().filter((book) => book.title.toLowerCase().includes(term))
+    );
   }
 
   onDelete(id: string) {
     if (confirm('Are you sure you want to delete this book?')) {
       this.service.delete(id).subscribe(() => {
         this.message.set(`Book has been deleted!`);
-        this.books.set(this.books().filter((book) => book.id !== id));
+        this.filteredBooks.set(
+          this.filteredBooks().filter((book) => book.id !== id)
+        );
       });
     }
   }
