@@ -92,7 +92,7 @@ MIT
 
 ---
 
-**Contact:** Thiago Trefilio · [t.trefilio@gmail.com] · [linkedin.com/in/thiagotrefilio] | [github.com/ttrefilio]
+**Contact:** Thiago Trefilio · [t.trefilio@gmail.com] · [[linkedin.com/in/thiagotrefilio](https://www.linkedin.com/in/thiagotrefilio)] · [[github.com/ttrefilio](https://github.com/ttrefilio)]
 
 ---
 
